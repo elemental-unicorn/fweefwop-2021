@@ -684,41 +684,6 @@ let sv (h:t) = p : sv (filter (\x -> x `mod` h /= 0) t) in sv [2..]
 
 Flag: `haskell`
 
-***#### Solve
-There is 1 or more primes missing from the challenge as `p*q != n`. With this information we can check that the remainder is a prime. If its not we need to factor  but if it is we can use it to get `phi` and decrypt the message.
-
-```python
-#!/usr/bin/env python3
-
-from Crypto.Util.number import long_to_bytes
-import math
-
-n = 7951018409693161668167285098819306759801615467749983772377532762274564323674475529781135819956076874943220398570628206016160240882619874330243093244936395110045993507712409313429053491882557640392921080389040202564944368311332322835084748219968985945494232530915619964225016803746552927248389191728978163526848645974605789560442463273013903681542284658299342143
-
-p = 1929116635275264735053674741049427216734778196597952692885273974756157874848524489523506992386257196915978454424769273897
-
-q = 1903374449504601072452320486035709413287524054085898117310656797189766004182623359564618504846582607657952100194953437513
-
-e = 65537
-
-c = 5966972166891478943697533397002317526062125536151178353483752855912660840768728401988233413928558098251299119103372377488247940263788187179216261221551423070667612264065068718276490178352621443926803409497199336389072678702084464080895190403103597610490385133200289793164066702537822343346786026894342086902097286424450736331498175097265162507503062204219321005
-
-r = (n//p)//q
-
-assert( n == p*q*r )
-
-phi = math.prod([ i-1 for i in [p,q,r]])
-d = pow(e,-1,phi)
-
-pt = pow(c,d,n)
-
-print(long_to_bytes(pt))
-```
-
-`r` was the missing prime. 
-
-Flag: `fwopCTF{triple_primes_also_work}`
-
 ***
 
 ## Forensics 
@@ -1012,6 +977,8 @@ Uncorrupt this file to discover the secret message hidden within.
 - [corrupted_flag.png](./_file/corrupted_flag_00.png)
 
 #### Solve
+_Note: there was an easier way to solve this but `hexeditor` and `bless` kept crashing on me so ive done it this way_
+
 Use `binwalk` on the file to get a `zlib` file.
 
 ```bash
@@ -2277,7 +2244,7 @@ Flag: `fwopCTF{cyprusdante1}`
 
 ***
 
-### Crypto : WireBirds
+### Crypto : Where's the message
 #### Description
 My friend sent me these lyrics and then told me to find the message:
 
@@ -2290,11 +2257,11 @@ Looking at the song lyrics (any maybe a quick google) shows that its the song "H
 
 Flag: `WOWTHANKS`
 
-_Rant: This flag had me going down a deep rabbit hole looking up the secret message of the song about toxic relationships in the early 2000's then onto the rhythm count for the song - 11/2, 11/4, 4/4, 4/2, 4/4/4/2/4/4, etc... I now hate this song._
+_Rant: This flag had me going down a rabbit hole; a deep, dark completely wrong rabbit hole looking up the secret message of the song about toxic relationships in the early 2000's then onto the rhythm count for the song - 11/2, 11/4, 4/4, 4/2, 4/4/4/2/4/4, etc... I now hate this song._
 
 ***
 
-### Crypto : Where's the message?
+### Crypto : Wirebirds 
 #### Description
 What's better than Wireshark? Wirebirds!
 
@@ -2692,6 +2659,61 @@ q=190337444950460107245232048603570941328752405408589811731065679718976600418262
 e=65537
 c=5966972166891478943697533397002317526062125536151178353483752855912660840768728401988233413928558098251299119103372377488247940263788187179216261221551423070667612264065068718276490178352621443926803409497199336389072678702084464080895190403103597610490385133200289793164066702537822343346786026894342086902097286424450736331498175097265162507503062204219321005
 ```
+
+#### Solve 
+For this to be valid complete set of parameters `n` must equal the product of all primes.
+
+```python
+>>> assert(n==p*q)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AssertionError
+```
+
+It appears that we either have the incorrect modulus or are missing 1 (or more) prime(s). Let try to calculate another prime with the info we have.
+
+```python
+>>> from Crypto.Util.number import isPrime
+>>> isPrime(n//p//q)
+1
+```
+
+We can see that the result of n divided by p then q is a prime number - success. If it wasnt prime we may have to factor the number we get back into 2 or more primes. and we can see that 1 off of q produces a non-prime number.
+
+```python
+>>> isPrime(n//p//q-1)
+False
+```
+
+Working with this information we can use the following to get the plaintext
+
+```python
+from Crypto.Util.number import isPrime, long_to_bytes
+import math
+
+# load in provided variables here
+
+# create prime list 
+primes = [p,q]
+
+# add missing prime as proven above - not using '//' as '/' will return a float
+primes.append( n // p // q )
+
+# test again - to be sure
+assert( math.prod(primes) == n )
+
+# calc phi
+phi = math.prod([p-1 for p in primes])
+
+# calculate private exponent
+d = pow(e,-1,phi)
+
+# decrypt message and convert from long to bytes
+pt = pow(c,d,n)
+print( long_to_bytes(pt) )
+```
+
+Flag: `fwopCTF{triple_primes_also_work}`
 
 ***
 
