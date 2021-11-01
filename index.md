@@ -1,4 +1,4 @@
-# Fweefwop CTF 2021
+_hard to read? View on Github pages here [https://elemental-unicorn.github.io/fweefwop-2021/](https://elemental-unicorn.github.io/fweefwop-2021/)_
 
 ## Contents
 - [Crypto](#crypto) (complete)
