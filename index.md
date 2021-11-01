@@ -351,7 +351,7 @@ After the above code is executed, what's the value (in decimal) in EAX?
 
 #### Solve
 
-![assembly01](./_img/assembly_01.png)
+![assembly01](assets/img/assembly_01.png)
 
 ```python
 0x9167
@@ -373,7 +373,7 @@ After stepping through the 3 lines, what's the value in EBX in decimal?
 
 #### Solve
 
-![assembly02](./_img/assembly_02.png)
+![assembly02](assets/img/assembly_02.png)
 
 ```python
 0x2222
@@ -396,7 +396,7 @@ What do you have in EAX after running these instructions? The flag of the format
 
 #### Solve
 
-![assembly03](./_img/assembly_03.png)
+![assembly03](assets/img/assembly_03.png)
 
 Flag: `0x1200`
 
@@ -438,7 +438,7 @@ What's the hex value of ebx at the end? Enter flag in the format of `0x????` whe
 
 #### Solve
 
-![assembly04](./_img/assembly_04.png)
+![assembly04](assets/img/assembly_04.png)
 
 Flag: `0x123`
 
@@ -460,7 +460,7 @@ What's the hex value of ebx at the end? The flag is in the form or '0x???' with 
 
 #### Solve
 
-![assembly05](./_img/assembly_05.png)
+![assembly05](assets/img/assembly_05.png)
 
 Flag: `0x123`
 
@@ -535,7 +535,7 @@ Flag: `fwopCTF{fwop}`
 #### Description
 if A, B, and Cin all equal to 1. What's the value of S?
 
-![gates](./_img/gates_00.png)
+![gates](assets/img/gates_00.png)
 
 #### Solve
 Looking at the diagram the left most XOR gate is not triggered as both A and B are 1. C then triggers the XOR gate of S therefore the value of S is 1.
@@ -713,7 +713,7 @@ This series focuses on retrieving data from other data.
 #### Description
 Chapter One of Alice in Wonderland we're diving into the rabbit hole.
 
-![garden](./_img/garden.jpg)
+![garden](assets/img/garden.jpg)
 
 #### Solve
 Running `strings` on the file shows the flag at the end of the file.
@@ -737,7 +737,7 @@ Flag: `fwopCTF{Beneath_the_surface}`
 #### Description
 What's in the file?
 
-[flag.txt.gz](./_file/flag.txt.gz)
+[flag.txt.gz](assets/file/flag.txt.gz)
 
 #### Solve
 Use `zcat` to extract and print in one command
@@ -756,7 +756,7 @@ The fourth wall shatters, along with your expectations of this problem.
 
 The flag is in the image description. How can you view it?
 
-![meta_00](./_img/meta_00.jpg)
+![meta_00](assets/img/meta_00.jpg)
 
 #### Solve
 Use `exiftool` to extract and print in one command
@@ -773,7 +773,7 @@ Flag: `fwopCTF{metadata_is_funky}`
 #### Description
 Why I don't see anyting useful in this text file?
 
-[fflag_00](./_file/fflag.txt)
+[fflag_00](assets/file/fflag.txt)
 
 #### Solve
 Looking at the header of the file we can see that it is infact a PNG file.
@@ -794,7 +794,7 @@ $ cat fflag.txt | xxd | head
 
 Change the extension and open it with a photo viewer application.
 
-![fflag_01](./_img/fflag_01.png)
+![fflag_01](assets/img/fflag_01.png)
  
 Flag: `fwopCTF{actually_an_image}`
 
@@ -804,7 +804,7 @@ Flag: `fwopCTF{actually_an_image}`
 #### Description 
 Read deep into the eyes, what do you see?
 
-![husky](./_img/Husky_00.png)
+![husky](assets/img/Husky_00.png)
 
 #### Solve
 Looking at the metadata for the file with `exiftool` shows nothing.
@@ -837,8 +837,8 @@ Flag: `fwopCTF{r34d1ng_b37w33n_7h3_by73s}`
 #### Description 
 They are not the same if you look carefully.
 
-- [file_1](./_file/t1.txt)
-- [file_2](./_file/t2.txt)
+- [file_1](assets/file/t1.txt)
+- [file_2](assets/file/t2.txt)
 
 #### Solve
 Reviewing the length of the files they are the same length at 10000 lines each. Running a `diff` between them shows the flag.
@@ -855,12 +855,12 @@ Flag: `fwopCTF{r3sp3ct_th3_d1ff}`
 #### Description 
 There is a flag in the file.
 
-- [text](./_file/bb.txt)
+- [text](assets/file/bb.txt)
 
 #### Solve
 The file provided is base64 encoded. Decoding it provides a PNG image. Write the PNG to a file then open it.
 
-![bb](./_img/bb_01.png)
+![bb](assets/img/bb_01.png)
 
 Flag: `fwopCTF{this_is_a_boring_flag}`
 
@@ -870,7 +870,7 @@ Flag: `fwopCTF{this_is_a_boring_flag}`
 #### Description 
 What is pictured in the image hidden inside this image?
 
-![green_apple](./_img/green_apple_00.png)
+![green_apple](assets/img/green_apple_00.png)
 
 #### Solve
 Using `zsteg -a` provides back a file at the profile `b1,rgb,lsb,xy`.
@@ -900,7 +900,7 @@ Flag: `fwopCTF{apple_core_of_course}`
 #### Description 
 Shiba may not tell you the flag, but you can still follow her direction.
 
-![shiba](./_img/shiba_00.png)
+![shiba](assets/img/shiba_00.png)
 
 #### Solve
 Using `zsteg -a` provides back a line with this text 
@@ -940,7 +940,7 @@ Flag: `fwopCTF{easilypranked}`
 #### Description 
 What is in this image?
 
-![apple](./_img/cookie_00.png)
+![apple](assets/img/cookie_00.png)
 
 #### Solve
 Using zsteg finds the flag with profile `b1,rgb,lsb,xy`.
@@ -953,7 +953,7 @@ Flag: `FwopCTF{ThisIsSoMuchFun}`
 #### Description 
 Apples and __________
 
-![apple](./_img/apple_00.jpg)
+![apple](assets/img/apple_00.jpg)
 
 #### Solve
 Taking the image and running it through `steghide` with the password `oranges` provides `secret.txt`. The password was guessed from the name of the challenge having `oranges` in it but the description missing it. 
@@ -974,14 +974,14 @@ Flag: `fwopCTF{which_is_your_favorite}`
 #### Description 
 The message is not carved on the wood. It's deeper in the color.
 
-![door](./_img/wood_door_00.png)
+![door](assets/img/wood_door_00.png)
 
 #### Solve
 Assessing the image with tools like `zsteg`, `foremost`, and `binwalk` show nothing. This leads me to believe that it must be something that has edited the actual image itself. 
 
 Using `stegsolve` ([http://www.caesum.com/handbook/Stegsolve.jar](http://www.caesum.com/handbook/Stegsolve.jar)) we are able to view the image in differet ways, includeing bit planes for colours. The place that was hiding the flag was `Blue 2`
 
-![door2](./_img/wood_door_01.png)
+![door2](assets/img/wood_door_01.png)
 
 Flag: `fwopCTF{hiding_in_bit_plane}`
 
@@ -991,7 +991,7 @@ Flag: `fwopCTF{hiding_in_bit_plane}`
 #### Description 
 Uncorrupt this file to discover the secret message hidden within.
 
-- [corrupted_flag.png](./_file/corrupted_flag_00.png)
+- [corrupted_flag.png](assets/file/corrupted_flag_00.png)
 
 #### Solve
 _Note: there was an easier way to solve this but `hexeditor` and `bless` kept crashing on me so ive done it this way_
@@ -1028,7 +1028,7 @@ Adjust the following parameters:
 
 This should be the presented picture with the flag present.
 
-![corrupted_01](./_img/corrupted_01.png)
+![corrupted_01](assets/img/corrupted_01.png)
 
 Flag: `fwopCTF{c0rrupted}`
 
@@ -1072,7 +1072,7 @@ Flag format: fwopCTF{(song name)(song's full artist's name)} Do not put any spac
 Example: Whatever It Takes by Imagine Dragons
 Flag: fwopCTF{whateverittakesimaginedragons}
 
-[song00](./_audio/song_00.mp3)
+[song00](assets/audio/song_00.mp3)
 
 #### Solve
 Assessing the file there is no metadata found with `exiftool` or `ffmpeg`.
@@ -1087,7 +1087,7 @@ Flag: `fwopCTF{shoptobyfox}`
 #### Description 
 Our newbie secrete agent doesn't know any encryption. So he just smashed his message and scrumble the pieces, just to fool our enemy. We are not sure it would work, but we need to get the message out anyway. Please help!
 
-[smashed.txt.gz](./_file/smashed.txt.gz)
+[smashed.txt.gz](assets/file/smashed.txt.gz)
 
 #### Solve
 
@@ -1107,7 +1107,7 @@ Flag: `fwopCTF{kirby_is_the_best_in_super_smash_bros_change_my_mind}`
 #### Description 
 Our cyber secret special undercover agent intersepted a cryptocurrency transaction log. The first thing we want to know is how many transactions are there?
 
-[transactions.json.gz](./_file/transactions.json.gz)
+[transactions.json.gz](assets/file/transactions.json.gz)
 
 #### Solve
 Download the file and uncompress.
@@ -1213,7 +1213,7 @@ Flag: `63382.93`
 #### Description
 Kevin is dreaming
 
-![kevin_zzz](./_img/kevin_zzz_00.jpg)
+![kevin_zzz](assets/img/kevin_zzz_00.jpg)
 
 #### Solve
 There is a hint on this challenge for a walkinh bin - hinting at the binary `binwalk`.
@@ -1268,16 +1268,16 @@ Flag: `fwopCTF{rick_fan_are_you_not?}`
 #### Description
 We intercepted this sound clip. It's not even music. What's in it?
 
-[noise.wav](./_audio/noise_00.wav)
+[noise.wav](assets/audio/noise_00.wav)
 
 #### Solve
 Opening the wav file in `sonic-visualiser` shows the waveform of the file. 
 
-![noise_01](./_img/noise_01.png)
+![noise_01](assets/img/noise_01.png)
 
 Viewing the spectogram we can see the flag (menu "Layer" > "Add Spectrogram")
 
-![noise_02](./_img/noise_02.png)
+![noise_02](assets/img/noise_02.png)
 
 The flag is the name provided
 
@@ -1444,8 +1444,6 @@ The challenge is using a Caesar cipher to obfuscate the flag.
 
 Dropping the obfuscated flag into cyberchef and using a `Vigenere Decode` with the key `q` provides the flag
 
-<script src="https://asciinema.org/a/14.js" id="asciicast-14" async></script>
-
 Flag: `fwopCTF{Brutus_says_Ceaser_sucks}`
 
 ***
@@ -1488,14 +1486,14 @@ Flag: `7ca2197c58b026825c382e32621b1ce4`
 #### Description
 This cipher is an ancient cipher. What does it say?
 
-![oink_challenge](./_img/oink_00.png)
+![oink_challenge](assets/img/oink_00.png)
 
 #### Solve
 Googling for `lines and dots cipher` proves fruitful with an image stating the cipher type as `Pigpen Cipher` fitting the challenge name.
 
 Using a lookup table like the one below the flag can be found. 
 
-![oint_01](./_img/oink_01.png)
+![oint_01](assets/img/oink_01.png)
 
 Flag: `fwopCTF{welovepigs}`
 
@@ -1505,12 +1503,12 @@ Flag: `fwopCTF{welovepigs}`
 #### Description
 Leonardo Da Vinci would be proud!
 
-![flipfwop](./_img/flipfwop_00.png)
+![flipfwop](assets/img/flipfwop_00.png)
 
 #### Solve
 Using any basic image editing software you are able to flip the image on the y-axis to see the flag.
 
-![flipfwop](./_img/flipfwop_01.png)
+![flipfwop](assets/img/flipfwop_01.png)
 
 Flag: `fwopCTF{eatch_fire_water_air}`
 
@@ -1580,12 +1578,12 @@ Flag: `fwopCTF{the_water_in_the_black_sea_is_too_salty_aUdhEUjIhO}`
 #### Description
 Flags or flag? Can flags make a flag?
 
-![flags](./_img/capture_the_flags_00.png)
+![flags](assets/img/capture_the_flags_00.png)
 
 #### Solve
 Searching for flags with the description of some provided showed maritime flags. We also needed ones with accurate numbers to show the complete flag.
 
-![flags_chart](./_img/capture_the_flags_01.jpg)
+![flags_chart](assets/img/capture_the_flags_01.jpg)
 
 This provides
 `eureka8891`
@@ -1893,12 +1891,12 @@ Flag: `fwopCTF{so_many_steps}`
 #### Description
 If you did a time travel to Ballyshannon, the year is 500CE...
 
-![ballyshannon0](./_img/bally_shannon_00.png)
+![ballyshannon0](assets/img/bally_shannon_00.png)
 
 #### Solve
 Looking at google images with a search term of `cipher lines crossing line` gave me this image
 
-![lines](./_img/bally_shannon_01.gif)
+![lines](assets/img/bally_shannon_01.gif)
 
 Use it to decipher the message.
 
@@ -1922,7 +1920,7 @@ The Enterprise also intercepted an image from the same source.
 
 What does the message say?
 
-![borg0](./_img/borg_key_00.png)
+![borg0](assets/img/borg_key_00.png)
 
 #### Solve
 This challenge was meant to have users use the resistor color coding to get the XOR key to decrypt the message but loading the hex into cyberchef, using `from hex` then using `XOR Brute Force` shows the flag with key `aa`.
@@ -1957,7 +1955,7 @@ I was reading The Adventure of the Dancing Men when this picture fell out. I rea
 
 _Note: You will need to wrap the flag with fwopCTF{}. If the solution is "Happygator_is_bald", the flag will be "fwopCTF{Happygator_is_bald}" Slashes represent spaces, but in the flag it should be underscores._
 
-![sherlock](./_img/sherlock_00.png)
+![sherlock](assets/img/sherlock_00.png)
 
 #### Solve 
 Googling `dancing men cipher` leads me to `https://www.dcode.fr/dancing-men-cipher`. Use it to decode the message
@@ -1972,7 +1970,7 @@ Flag: `fwopCTF{You_know_my_methods_Watson}`
 #### Description
 What is that infernal noise? It came over my telegraph.
 
-[Beep-Boop.wav](./_audio/beep_boop_00.png)
+[Beep-Boop.wav](assets/audio/beep_boop_00.png)
 
 #### Solve 
 The file provided is an audio file. Listening to the file it contains short and long 'beeping' tones. A quick google of 'short and long tones cipher' reveals that it is morse code. 
@@ -2013,7 +2011,7 @@ Flag: `fwopCTF{running_around_the_bases_456789}`
 
 No need for wrapper for this problem.
 
-![ave](./_img/ave_maria.png)
+![ave](assets/img/ave_maria.png)
 
 ```
 Immortalis magnus
@@ -2039,7 +2037,7 @@ Flag: `learnyourlatin`
 ### Crypto : 2B, or not 2B!
 #### Description
 
-![b2](./_img/2b_or_not_2b_00.jpg)
+![b2](assets/img/2b_or_not_2b_00.jpg)
 
 ```
 2b2b2b2b2b2b2b2b2b2b5b3e2b3e2b2b2b3e2b2b2b2b2b2b2b3e2b2b2b2b2b2b2b2b2b2b3c3c3c3c2d5d3e3e3e3e2b2b2e2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2e2d2d2d2d2d2d2d2d2e2b2e3c2d2d2d2e2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2e2d2d2d2d2d2d2d2d2d2d2d2d2d2d2e3e2b2b2b2b2b2b2b2b2b2b2b2e3c2b2b2b2b2b2b2b2b2b2b2b2b2b2e3e2d2d2d2d2d2d2d2d2d2d2d2d2e2d2d2e2d2d2d2d2d2d2d2d2e2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2e2d2d2d2d2d2d2d2d2d2d2d2d2e2b2e2b2b2b2b2b2e2d2d2d2d2d2d2d2e2d2d2d2d2d2d2d2d2e2b2b2b2b2b2b2b2b2b2b2e2b2b2b2b2b2b2b2b2b2b2e3c2b2b2b2b2b2b2b2b2b2b2b2b2e3e2d2e2d2d2d2e2b2b2b2b2b2e2e3c2b2b2b2b2b2b2e3e2d2d2d2d2d2d2e3c2d2d2d2d2d2d2e3e2d2d2d2d2d2e2b2b2b2b2b2e3c2e3e2b2b2b2b2b2b2e3c2b2b2b2b2b2b2b2b2b2e2d2d2d2e2d2d2d2d2d2d2e3e2d2e2b2e3c2b2b2e3e2e3c2b2b2b2b2e2d2d2d2d2d2d2e3e2d2d2d2d2d2e3c2b2b2b2b2b2b2b2e2d2d2d2d2d2d2d2e2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2e3e2d2d2d2d2d2d2d2d2d2d2e2b2b2b2b2b2b2b2b2b2e2d2e2d2d2d2d2d2d2d2d2d2d2d2d2e2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2e2d2d2d2d2d2d2d2e2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2e
@@ -2191,7 +2189,7 @@ The MD5 hash of his password is
 
 Tell Kevin he is wrong.
 
-[10k-most-common.txt](./_files/10k-most-common.txt)
+[10k-most-common.txt](assets/files/10k-most-common.txt)
 
 #### Solve 
 The password list provided doesnt have the required `fwopCTF{}` wrap around passwords. Instead of changing each and ever line in this file before using in a hash cracking software we can instead pipe the data from the file, to a transform (`sed`) and then into `hashcat`. 
@@ -2294,7 +2292,7 @@ Flag: `fwopCTF{cyprusdante1}`
 #### Description
 My friend sent me these lyrics and then told me to find the message:
 
-![heyya](./_img/heyya_00.png)
+![heyya](assets/img/heyya_00.png)
 
 _Note: this description doesnt capture the original challenge question but the revised question with an image over raw text._
 
@@ -2311,12 +2309,12 @@ _Rant: This flag had me going down a rabbit hole; a deep, dark completely wrong 
 #### Description
 What's better than Wireshark? Wirebirds!
 
-![wirebirds](./_img/wirebirds_00.png)
+![wirebirds](assets/img/wirebirds_00.png)
 
 #### Solve 
 If you google `birds on a wire cipher` you will get this image (or similar) in the results
 
-![wirebirds_solve](./_img/wirebirds_01.png)
+![wirebirds_solve](assets/img/wirebirds_01.png)
 
 From this you can get the flag
 
@@ -3666,7 +3664,7 @@ What's the name of the avenue where this picture was taken?
 
 _Note: If the avenue name is `abc avenue`, then the flag is `fwopCTF{abc}`._
 
-![osint00](./_img/osint_00.png)
+![osint00](assets/img/osint_00.png)
 
 #### Solve
 Viewing the image we can see the sign on the left says "Apple Park Visitor Centre". Using google maps to search for that provides the avenue name
@@ -3694,7 +3692,7 @@ Kevin visited this island. He told me the island has something to do with "The R
 
 _Note: if the island name is Xyz island, then the flag is `fwopCTF{xyz}`._
 
-![osint01](./_img/osint_01.png)
+![osint01](assets/img/osint_01.png)
 
 #### Solve
 Dropping the image into yandex shows many results for "alcatraz island".
@@ -3749,12 +3747,12 @@ Flag: `fwopCTF{kinshasa}`
 #### Description
 The super villian is around this light house. What town is he in?
 
-![lighthouse](./_img/lighthouse_00.png)
+![lighthouse](assets/img/lighthouse_00.png)
 
 #### Solve
 Dropping the image into yandex shows 'Point Pinos Lighthouse'
 
-![lighthouse01](./_img/lighthouse_01.png)
+![lighthouse01](assets/img/lighthouse_01.png)
 
 Searching for that location in google maps brings back 'Pacific Grove'
 
@@ -3773,11 +3771,11 @@ _Note: use fwopCTF{} format and replace spaces with underscores._
 #### Solve
 Heading over to kevins twitter there is no evidence of his birthday. 
 
-![osint02](./_img/osint_02.png)
+![osint02](assets/img/osint_02.png)
 
 If you follow kevin you can now see his birth year on his profile as '2000'.
 
-![osint03](./_img/osint_03.png)
+![osint03](assets/img/osint_03.png)
 
 Checking out [https://www.thegamer.com/gaming-consoles-handhelds-2000s-ranked/](https://www.thegamer.com/gaming-consoles-handhelds-2000s-ranked/) we are able to see that the `ps2` was released the same year as kevin was born.
 
@@ -3796,13 +3794,13 @@ _Note: ignore the part about Extra #1_
 #### Solve
 Heading over to kevins twitter there is no evidence of the flag. The challenge mentions going back in time so we check out waybackmachine.
 
-![osint04](./_img/osint_04.png)
+![osint04](assets/img/osint_04.png)
 
 Clicking on the highlighted link takes you to an archived version of kevins twitter page which has a flag in a tweet. 
 
 [Permalink](http://web.archive.org/web/20210703174210/https://twitter.com/TheCoolerKevin_)
 
-![osint05](./_img/osint_05.png)
+![osint05](assets/img/osint_05.png)
 
 
 Flag: `fwopCTF{wayback_machine_doesn't_let_me_play_club_penguin_again_D:}`
@@ -3816,11 +3814,11 @@ Kevin, our team mascot, has been hiding something from us. I thought I saw somet
 #### Solve
 Heading over to kevins github repository `fweefwopkevin` he appears to have a single repository; a fork of [hampusborgos/country-flags](hampusborgos/country-flags) with the same name. Viewing the repository there is mention of a commit 'redacting' a 'flag'. 
 
-![osint06](./_img/osint_06.png)
+![osint06](assets/img/osint_06.png)
 
 Clicking on the commit name takes you to the difference of the changes from the previous commit to that commit in which you can see the flag. 
 
-![osint07](./_img/osint_07.png)
+![osint07](assets/img/osint_07.png)
 
 
 Flag: `fwopCTF{h1dd3n_1n_7h3_h1570ry_28934}`
