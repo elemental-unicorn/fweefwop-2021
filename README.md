@@ -304,6 +304,23 @@ flag = next(resp.results).subpod.plaintext
 print(flag)
 ```
 
+#### Alternate Solve
+_This solve was provided by @Happysaur (CTF admin) on discord_
+
+```python
+outer_mod = 384302
+middle_mod = 0
+for i in range(2,outer_mod):
+	if pow(31,i,outer_mod) == 1:
+		middle_mod = i
+		break
+
+assert(middle_mod!=0)
+
+flag = pow(31,pow(31,2813771283,middle_mod),outer_mod)
+print(flag) 
+```
+
 Flag: `278505`
 
 ***
@@ -1014,6 +1031,35 @@ This should be the presented picture with the flag present.
 ![corrupted_01](./_img/corrupted_01.png)
 
 Flag: `fwopCTF{c0rrupted}`
+
+#### Alternate Solve
+_This solve was the intended solution but `hexedit` and `bless` were not working for me so i didnt do it this way. I later used the following to get a beter view of the flag_
+
+Viewing the header of the file we can see that it is missing the PNG header.
+
+```bash
+xxd c.png| head                                                      
+00000000: 8924 0032 0d0a 1a0a 0000 0012 4948 4452  .$.2........IHDR
+00000010: 0000 0480 0000 0288 0802 0000 0087 4916  ..............I.
+00000020: 5a00 0000 0173 5247 4200 aece 1ce9 0000  Z....sRGB.......
+00000030: 0004 6741 4d41 0000 b18f 0bfc 6105 0000  ..gAMA......a...
+00000040: 0009 7048 5973 0000 0ec3 0000 0ec3 01c7  ..pHYs..........
+00000050: 6fa8 6400 00ff a549 4441 5478 5eec fdf7  o.d....IDATx^...
+00000060: 975d 4596 ed8f bebf e7fd f0ee 78df eedb  .]E.........x...
+00000070: befb 5677 97af eaaa 2e43 0105 4541 611a  ..Vw.....C..EAa.
+00000080: 7381 c2db c214 0284 9140 42de 2390 8490  s........@B.#...
+00000090: 37c8 7ba5 3cf2 1232 29ef bdb7 48e4 fe7e  7.{.<..2)...H..~
+```
+
+If we add the required PNG header (`89 50 4e 47 0d 0a 1a 0a 00 00 00 0d`) in place of the corrupt data at the first 12 bytes we get a readable PNG.
+
+```bash
+$ dd bs=12 skip=1 if=Corrupt_image.png of=data
+$ pwn unhex 89 50 4e 47 0d 0a 1a 0a 00 00 00 0d | cat - data > new.png
+$ xdg-open new.png
+```
+
+The image will have the flag. 
 
 ***
 
